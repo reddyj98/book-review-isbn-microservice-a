@@ -68,6 +68,7 @@ An example of successful JSON response would be the following:
 For a separate test_client, please refer to the test_client.py file for guidance on how the Microservice works.
 
 ## UML
+<img width="1388" height="939" alt="Image" src="https://github.com/user-attachments/assets/6cf1667f-f3aa-4a45-9e1f-c9c56a25d852" />
 
 ---
 ## Setup
