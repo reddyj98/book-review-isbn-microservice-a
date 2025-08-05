@@ -9,6 +9,66 @@ books API using an ISBN number inputted by the user via the Main Program.
 - Fetch title, authors, publisher, published date, description all from Google Books
 - Return data as JSON
 
+## Communication Plan
+
+---
+
+## How to Request Data
+The microservice provides a GET endpoint to retrieve the book details
+by ISBN.
+
+The endpoint URL will look similar to this:
+
+GET http://127.0.0.1:8000/api/book/<isbn>/
+
+Replace the **isbn** value with a valid ISBN-10 or ISBN-13 (hyphens and spaces are allowed and accounted for).
+
+An example request would be the following:
+```
+import requests
+
+isbn = "9780439023528"
+url = "http://127.0.0.1:8000/api/book/{isbn}/"
+
+response = requests.get(url)
+
+# we are assuming that the ISBN is valid with a 200 status code.
+print(response.json())
+```
+For a separate test_client, please refer to the test_client.py file for guidance on how the Microservice works.
+
+## How to Receive Data
+The microservice responds with JSON.
+
+The example code to receive and process the response would be the following:
+```
+import requests
+
+isbn = "9780439023528"
+url = "http://127.0.0.1:8000/api/book/{isbn}/"
+response = requests.get(url)
+
+if response.status_code = 200:
+    data = response.json()
+    ... # parse the data 
+else:
+    print("error!")
+```
+
+An example of successful JSON response would be the following:
+```
+{
+    'title': 'The Hunger Games',
+    'authors': ['Suzanne Collins'], 
+    'publisher': 'Scholastic Inc.', 
+    'publishedDate': '2008', 
+    'description': 'By winning the Hunger Games, Katniss...
+}
+```
+For a separate test_client, please refer to the test_client.py file for guidance on how the Microservice works.
+
+## UML
+
 ---
 ## Setup
 ### 1. Clone the repository
